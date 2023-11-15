@@ -708,9 +708,6 @@ class QRGeneratorView(View):
 
     def get_issuer(self):
         if settings.TOTP_ISSUER:
-            print('****')
-            print(settings.TOTP_ISSUER)
-            print('%%%%%')
             return settings.TOTP_ISSUER
         return get_current_site(self.request).name
 
