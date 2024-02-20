@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-two-factor-auth',
-    version='1.15.5',
+    version='1.16.0',
     description='Complete Two-Factor Authentication for Django',
     long_description=open('README.rst', encoding='utf-8').read(),
     author='Bouke Haarsma',
@@ -21,10 +21,20 @@ setup(
     extras_require={
         'call': ['twilio>=6.0'],
         'sms': ['twilio>=6.0'],
-        'webauthn': ['webauthn>=1.11.0,<1.99'],
+        'webauthn': ['webauthn>=2.0,<2.99'],
         'yubikey': ['django-otp-yubikey'],
         'phonenumbers': ['phonenumbers>=7.0.9,<8.99'],
         'phonenumberslite': ['phonenumberslite>=7.0.9,<8.99'],
+        # used internally for local development & CI
+        'tests': [
+            'coverage',
+            'freezegun',
+            'tox',
+        ],
+        'linting': [
+            'flake8<=6.99',
+            'isort<=5.99',
+        ],
     },
     include_package_data=True,
     classifiers=[
@@ -35,6 +45,7 @@ setup(
         'Framework :: Django :: 4.0',
         'Framework :: Django :: 4.1',
         'Framework :: Django :: 4.2',
+        'Framework :: Django :: 5.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -45,6 +56,7 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
         'Topic :: Security',
         'Topic :: System :: Systems Administration :: Authentication/Directory',
     ],
